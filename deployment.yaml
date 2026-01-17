@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: groww-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: groww
+  template:
+    metadata:
+      labels:
+        app: groww
+    spec:
+      containers:
+      - name: groww-container
+        image: YOUR_ECR_IMAGE_URI
+        ports:
+        - containerPort: 5000
